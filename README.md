@@ -2,6 +2,7 @@
 Repozytorium do zajęć Narzędzia do budowy automatyzacji oprogramowania
 
 
+
 Repozytorium zawiera przykładowy projekt ilustrujący umiejętność korzystania z GitHub oraz narzędzi do automatyzacji, takich jak Makefile, Docker, oraz CircleCI.
 
 ## Zawartość
