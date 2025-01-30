@@ -6,7 +6,7 @@
   "email": "jan.kowalski@example.com",
   "telefon": "+48 123 456 789",
   "czy_student": false,
-  "saldo": 1000.50,
+  "saldo": 1000.5,
   "adres": {
     "ulica": "ul. Długa 15",
     "miasto": "Warszawa",
