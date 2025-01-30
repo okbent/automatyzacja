@@ -1,0 +1,26 @@
+name: Sprawdzanie i formatowanie JSON (Windows)
+
+on: [push, pull_request]
+
+jobs:
+  lint-and-format-json:
+    name: Linting i formatowanie plików JSON
+    runs-on: windows-latest
+
+    steps:
+      - name: Pobierz kod z repozytorium
+        uses: actions/checkout@v3
+
+      - name: Zainstaluj narzędzia do lintingu i formatowania
+        run: npm install -g jsonlint prettier
+
+      - name: Sprawdź poprawność składni JSON (Linting)
+        shell: pwsh
+        run: |
+          Get-ChildItem -Path . -Recurse -Filter "*.json" | ForEach-Object {
+            Write-Host "Sprawdzam plik: $($_.FullName)"
+            jsonlint $($_.FullName) || exit 1
+          }
+
+      - name: Sprawdź format JSON (Prettier)
+        run: prettier --check "./**/*.json"
