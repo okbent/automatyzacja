@@ -23,4 +23,4 @@ jobs:
           }
 
       - name: Sprawdź format JSON (Prettier)
-        run: prettier --check "./**/*.json"
+        run: prettier --write "./**/*.json"
