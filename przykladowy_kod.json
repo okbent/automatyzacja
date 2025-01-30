@@ -1,0 +1,36 @@
+{
+  "id": 1,
+  "imie": "Jan",
+  "nazwisko": "Kowalski",
+  "wiek": 30,
+  "email": "jan.kowalski@example.com",
+  "telefon": "+48 123 456 789",
+  "czy_student": false,
+  "saldo": 1000.50,
+  "adres": {
+    "ulica": "ul. Długa 15",
+    "miasto": "Warszawa",
+    "kod_pocztowy": "00-001",
+    "kraj": "Polska"
+  },
+  "umiejętności": ["JavaScript", "Python", "Git", "SQL"],
+  "projekty": [
+    {
+      "nazwa": "Strona firmowa",
+      "status": "ukończony",
+      "data_utworzenia": "2023-01-15"
+    },
+    {
+      "nazwa": "Aplikacja mobilna",
+      "status": "w trakcie",
+      "data_utworzenia": "2024-02-01"
+    }
+  ],
+  "preferencje": {
+    "motyw": "ciemny",
+    "jezyk": "pl",
+    "powiadomienia": true
+  },
+  "data_rejestracji": "2022-06-30T14:23:00Z",
+  "ostatnie_logowanie": null
+}
