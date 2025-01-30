@@ -1,26 +1,26 @@
-name: Sprawdzanie i formatowanie JSON (Windows)
+name: Auto-formatowanie JSON
 
 on: [push, pull_request]
 
 jobs:
   lint-and-format-json:
-    name: Linting i formatowanie plików JSON
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Pobierz kod z repozytorium
         uses: actions/checkout@v3
 
-      - name: Zainstaluj narzędzia do lintingu i formatowania
-        run: npm install -g jsonlint prettier
+      - name: Zainstaluj Prettier
+        run: npm install -g prettier
 
-      - name: Sprawdź poprawność składni JSON (Linting)
-        shell: pwsh
+      - name: Sformatuj pliki JSON (autopoprawa)
+        run: prettier --write "**/*.json"
+
+      - name: Zapisz poprawione pliki do repozytorium
         run: |
-          Get-ChildItem -Path . -Recurse -Filter "*.json" | ForEach-Object {
-            Write-Host "Sprawdzam plik: $($_.FullName)"
-            jsonlint $($_.FullName) || exit 1
-          }
-
-      - name: Sprawdź format JSON (Prettier)
-        run: prettier --write "./**/*.json"
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "Auto-formatowanie JSON plików"
+          git push
+        continue-on-error: true  # Nie zatrzymuj workflow, jeśli nie ma zmian
